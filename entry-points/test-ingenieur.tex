@@ -7,13 +7,55 @@
 
 \begin{document}
 
-\input{../libs/sections/header.tex}
-\input{../libs/sections/profile.tex}
-\input{../libs/sections/focus-areas.tex}
-\input{../libs/sections/experience.tex}
-\input{../libs/sections/projects.tex}
-\input{../libs/sections/skills.tex}
-\input{../libs/sections/languages.tex}
-\input{../libs/sections/other.tex}
+\setlength{\columnsep}{18pt}
+\columnratio{0.35,0.65}
+\begin{paracol}{2}
+
+% ----- Sidebar (left) -----
+\begin{leftcolumn}
+  \raggedright
+  \profilephoto{../images/profile.jpg}
+  \sidetitle{Profil}
+  \input{../libs/sections/profile.tex}
+
+  \vspace{10pt}
+  \input{../libs/sections/skills.tex}
+
+  \vspace{6pt}
+  \input{../libs/sections/languages.tex}
+  \vspace{6pt}
+  \input{../libs/sections/other.tex}
+\end{leftcolumn}
+
+% ----- Main content (right) -----
+\switchcolumn
+\begin{rightcolumn}
+  \begin{flushright}
+    \cvtitle{FRANCK GIRES KENGNE TOBOU}\\[-2pt]
+    \cvsubtitle{Mechatronik, B Sc. (B.Sc.) \;|\; Quality \& Test \;|\; R\&D \;|\; Manufacturing \/ Materials}
+  \end{flushright}
+
+  \vspace{6pt}
+  \begin{tabular}{@{}p{0.3cm}p{7.8cm}@{}}
+  \textbullet & Rothenburger Str. 148, 90439 Nürnberg \\
+  \textbullet & \href{mailto:franckkengne.fk@gmail.com}{franckkengne.fk@gmail.com} \\
+  \textbullet & +49 176 7631 0195 \\
+  % \textbullet & \href{https://www.linkedin.com/in/yourprofile}{linkedin.com/in/yourprofile} \\
+  \end{tabular}
+
+  \vspace{12pt}
+  \input{../libs/sections/experience.tex}
+
+  \vspace{6pt}
+  \input{../libs/sections/education.tex}
+
+  \vspace{6pt}
+  \input{../libs/sections/projects.tex}
+\end{rightcolumn}
+
+\end{paracol}
+
+\newpage
+\input{../libs/letters/test-ingenieur.tex}
 
 \end{document}

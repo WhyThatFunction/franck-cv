@@ -9,6 +9,10 @@
 \usepackage{titlesec}
 \usepackage{parskip}
 \usepackage{fontspec}
+\usepackage{paracol}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{ifthen}
 
 % ---------- Style ----------
 \setlength{\parindent}{0pt}
@@ -39,9 +43,36 @@
   \textbf{#1} \dateright{#3}\\
   {\color{Muted}#2}\\
 }
+\newcommand{\resumeentry}[3]{% date, company/location, role
+  {\color{Muted}\small #1}\\[-2pt]
+  #2\\[-1pt]
+  {\headingfont\bfseries #3}\\[2pt]
+}
+\newcommand{\entryspace}{\vspace{6pt}}
 
 \newenvironment{cvbullets}{
   \begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
 }{
   \end{itemize}
+}
+
+% Sidebar helpers
+\newcommand{\sidetitle}[1]{\vspace{6pt}{\headingfont\bfseries\large #1}\par\vspace{4pt}}
+\newcommand{\contactitem}[2]{\textbullet\hspace{4pt}#1\hspace{6pt}#2\\}
+\newcommand{\profilephoto}[1]{%
+  \IfFileExists{#1}{%
+    \begin{center}
+      \begin{tikzpicture}
+        \clip (0,0) circle (2.35cm);
+        \node at (0,0) {\includegraphics[width=4.7cm]{#1}};
+      \end{tikzpicture}
+    \end{center}
+  }{}
+}
+\newcommand{\skillbar}[2]{%
+  \noindent\textbf{#1}\\[-2pt]
+  \begingroup
+    \color{Accent!15}\rule{10em}{4pt}%
+    \kern-10em\color{Accent}\rule{#2}{4pt}%
+  \endgroup\\[6pt]
 }

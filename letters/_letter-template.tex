@@ -1,0 +1,15 @@
+% Shared letter template for all entry points in letters/
+% Expects:
+% - \CVBasename (used to locate matching letter body in libs/letters/)
+% - \CVRole (optional, used by generic letter body)
+
+\documentclass[11pt,a4paper]{article}
+\input{libs/main.tex}
+
+\begin{document}
+\IfFileExists{libs/letters/\CVBasename.tex}{%
+  \input{libs/letters/\CVBasename.tex}%
+}{%
+  \input{libs/letters/_generic.tex}%
+}
+\end{document}

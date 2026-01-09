@@ -1,0 +1,63 @@
+% Shared CV template for all entry points in entry-points/
+% Expects:
+% - \CVBasename (used to locate matching letter body in libs/letters/)
+% - \CVName
+% - \CVRole
+
+\documentclass[11pt,a4paper]{article}
+\input{libs/main.tex}
+
+\begin{document}
+
+\noindent\cvtitle{\CVName}\\[2pt]
+\noindent\cvsubtitle{\CVRole}
+
+\vspace{12pt}
+
+\setlength{\columnsep}{18pt}
+\columnratio{0.35,0.65}
+\begin{paracol}{2}
+
+% ----- Sidebar (left) -----
+\begin{leftcolumn}
+  \raggedright
+  \profilephoto{images/profile.jpg}
+  \input{libs/sections/contact.tex}
+  \vspace{10pt}
+  \sidetitle{Profil}\vspace{-4pt}
+  \input{libs/sections/profile.tex}
+
+  \vspace{10pt}
+  \input{libs/sections/skills.tex}
+
+  \vspace{6pt}
+  \input{libs/sections/languages.tex}
+  \vspace{6pt}
+  \input{libs/sections/other.tex}
+\end{leftcolumn}
+
+% ----- Main content (right) -----
+\switchcolumn
+\begin{rightcolumn}
+  \input{libs/sections/experience.tex}
+
+  \vspace{6pt}
+  \input{libs/sections/education.tex}
+
+  \vspace{6pt}
+  \input{libs/sections/projects.tex}
+\end{rightcolumn}
+
+\end{paracol}
+
+\vspace{8pt}
+\input{libs/sections/skills-enum.tex}
+
+\newpage
+\IfFileExists{libs/letters/\CVBasename.tex}{%
+  \input{libs/letters/\CVBasename.tex}%
+}{%
+  \input{libs/letters/_generic.tex}%
+}
+
+\end{document}

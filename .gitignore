@@ -4,6 +4,8 @@
 !entry-points/*
 !images/
 !images/*
+!letters/
+!letters/*
 !libs/
 !libs/*
 !*.png

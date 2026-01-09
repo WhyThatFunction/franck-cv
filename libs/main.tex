@@ -1,0 +1,47 @@
+% Shared preamble and styling for CV documents
+
+% ---------- Packages ----------
+\usepackage[margin=1.6cm]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{fontspec}
+
+% ---------- Style ----------
+\setlength{\parindent}{0pt}
+\definecolor{Accent}{HTML}{1F4E79}
+\definecolor{Muted}{HTML}{555555}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Roboto}
+\newfontfamily\headingfont{Montserrat}[
+  UprightFont = {Montserrat SemiBold},
+  BoldFont    = {Montserrat ExtraBold}
+]
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=Accent,
+  linkcolor=Accent
+}
+
+\titleformat{\section}{\Large\headingfont\bfseries\color{Accent}}{}{0pt}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{6pt}
+
+\newcommand{\cvtitle}[1]{{\Huge\headingfont\bfseries #1}}
+\newcommand{\cvsubtitle}[1]{{\large\headingfont\color{Muted} #1}}
+\newcommand{\cvitem}[2]{\textbf{#1}\\#2}
+\newcommand{\dateright}[1]{\hfill{\color{Muted}#1}}
+\newcommand{\roleheader}[3]{% role, company/location, date
+  \textbf{#1} \dateright{#3}\\
+  {\color{Muted}#2}\\
+}
+
+\newenvironment{cvbullets}{
+  \begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
+}{
+  \end{itemize}
+}

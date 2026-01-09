@@ -3,151 +3,17 @@
 % Compile with: xelatex or lualatex (recommended for modern fonts)
 
 \documentclass[11pt,a4paper]{article}
+\input{../libs/main.tex}
 
-% ---------- Packages ----------
-\usepackage[margin=1.6cm]{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{tabularx}
-
-\usepackage{titlesec}
-\usepackage{parskip}
-
-% ---------- Style ----------
-\setlength{\parindent}{0pt}
-\definecolor{Accent}{HTML}{1F4E79}
-\definecolor{Muted}{HTML}{555555}
-
-\hypersetup{
-  colorlinks=true,
-  urlcolor=Accent,
-  linkcolor=Accent
-}
-
-\titleformat{\section}{\large\bfseries\color{Accent}}{}{0pt}{}[\titlerule]
-\titlespacing*{\section}{0pt}{10pt}{6pt}
-
-\newcommand{\cvtitle}[1]{{\Huge\bfseries #1}}
-\newcommand{\cvsubtitle}[1]{{\large\color{Muted} #1}}
-
-\newcommand{\cvitem}[2]{\textbf{#1}\\#2}
-
-\newcommand{\dateright}[1]{\hfill{\color{Muted}#1}}
-
-\newcommand{\roleheader}[3]{% role, company/location, date
-  \textbf{#1} \dateright{#3}\\
-  {\color{Muted}#2}\\
-}
-
-\newenvironment{cvbullets}{
-  \begin{itemize}[leftmargin=*, itemsep=2pt, topsep=2pt]
-}{
-  \end{itemize}
-}
-
-% ---------- Document ----------
 \begin{document}
 
-% ===== Header =====
-\begin{minipage}[t]{0.68\textwidth}
-  \cvtitle{FRANCK GIRES KENGNE TOBOU}\\
-  \cvsubtitle{Mechatronikingenieur (B.Sc.) \;|\; Quality \& Test \;|\; R\&D \;|\; Manufacturing \/ Materials}
-\end{minipage}
-\begin{minipage}[t]{0.31\textwidth}
-  \raggedleft
-  Rothenburger Str. 148\\
-  90439 Nürnberg\\
-  \href{mailto:franckkengne.fk@gmail.com}{franckkengne.fk@gmail.com}\\
-  +49 176 7631 0195\\
-  % \href{https://www.linkedin.com/in/yourprofile}{LinkedIn: yourprofile}
-\end{minipage}
-
-\vspace{6pt}
-
-% ===== Summary / Profile =====
-\section*{Profil}
-Motivierter Mechatronikingenieur (B.Sc.) mit praktischer Erfahrung in industrieller Qualitätssicherung, Werkstofftechnik und mechatronischen Systemen. Fundierte Kenntnisse in Mess- und Prüftechnik, additiver Fertigung (SLS) sowie Fehleranalyse und Prozessoptimierung. Teamorientiert, analytisch und sicher im Arbeiten in deutsch- und englischsprachigen technischen Umgebungen.
-
-% ===== Focus Areas / Core Competencies (inspired by first CV “Focus Areas”) =====
-\section*{Fokusbereiche}
-\begin{tabularx}{\textwidth}{@{}X X@{}}
-\textbf{Qualität \& Test} & \textbf{Mechatronische Systeme}\\
-Mess- und Prüftechnik, Systemtests, Fehleranalyse, Dokumentation & Funktionsanalyse, Auslegung von Komponenten, Integration\\
-\\
-\textbf{Werkstoffe \& Fertigung} & \textbf{Daten \& Tools}\\
-SLS, Pulververarbeitung, LOI/UL94/Cone Calorimetrie/TGA, Prozessoptimierung & Auswertung, Berichte/Präsentationen, MS Office, MATLAB\\
-\end{tabularx}
-
-% ===== Professional Experience =====
-\section*{Berufserfahrung}
-
-\roleheader{Bachelorand \textbar\ Werkstofftechnik / SLS}{Bayerisches Polymer Institut \textbar\ Fürth (Bayern)}{Jan 2025 -- Jul 2025}
-\begin{cvbullets}
-  \item Verarbeitung polymerer Pulver für SLS-Anlagen und Durchführung additiver Fertigungsprozesse.
-  \item Werkstoffanalysen mittels LOI, UL94, Cone Calorimetrie und TGA; strukturierte Auswertung der Ergebnisse.
-  \item Ableitung von Prozessoptimierungen auf Basis experimenteller Daten.
-  \item Erstellung technischer Berichte sowie Präsentation der Ergebnisse für Forschung \& Entwicklung.
-\end{cvbullets}
-
-\roleheader{Werkstudent Mechatronik}{Graphite Materials GmbH \textbar\ Oberasbach, Bayern}{Mai 2024 -- Dez 2024}
-\begin{cvbullets}
-  \item Analyse und Optimierung von Steuerungs-/Automatisierungssystemen industrieller Anlagen.
-  \item Recherche, Auswahl und Integration geeigneter Norm- und Zukaufteile.
-  \item Durchführung von Systemtests sowie strukturierte Fehleranalyse.
-  \item Erstellung und Pflege technischer Dokumentationen; Zusammenarbeit mit interdisziplinären Teams.
-\end{cvbullets}
-
-% ===== Education =====
-\section*{Ausbildung}
-\textbf{Bachelor of Science (B.Sc.) Mechatronik} \dateright{Apr 2019 -- Sep 2025}\\
-{\color{Muted}Friedrich-Alexander-Universität Erlangen–Nürnberg (FAU)}\\
-Schwerpunkt: Elektronik und Schaltungstechnik
-
-% ===== Practical / Academic Projects (mirrors “Projects” section idea) =====
-\section*{Ausgewählte Labor- \& Studienprojekte}
-\textbf{Grundlagen der Elektrotechnik (EMF / Hochfrequenztechnik, FAU)} \dateright{Okt 2019 -- Jul 2021}\\
-\begin{cvbullets}
-  \item Arbeit mit Oszilloskop, Funktionsgeneratoren und Labormessgeräten; Durchführung und Auswertung von Messreihen.
-  \item Schaltungen mit nichtlinearen Bauteilen, Brückenschaltungen und Operationsverstärkern.
-  \item Induktionsmessungen und Untersuchung magnetischer Felder.
-\end{cvbullets}
-
-\textbf{Grundlagen der elektrischen Antriebstechnik (FAU)} \dateright{Okt 2022 -- März 2023}\\
-\begin{cvbullets}
-  \item Analyse von Gleichstrommaschinen; U/f-Steuerung einer Asynchronmaschine.
-  \item Versuchsdurchführung, Messdatenanalyse und Dokumentation.
-\end{cvbullets}
-
-\textbf{Mechatronische Systeme (FAU)} \dateright{Apr 2023 -- Jul 2023}\\
-\begin{cvbullets}
-  \item Entwicklung eines mechatronischen Systems inkl. Auslegung elektrischer und mechanischer Komponenten.
-  \item Tests, Funktionsanalyse, Fehlerdiagnose und Optimierung von Hardwarekomponenten.
-\end{cvbullets}
-
-% ===== Skills (structured like first CV “Skills” blocks) =====
-\section*{Kompetenzen}
-\begin{tabularx}{\textwidth}{@{}l X@{}}
-\textbf{Mess- \& Prüftechnik} & Oszilloskop, Multimeter, Labormessgeräte, Aufbau von Versuchständen \\
-\textbf{Software \& Tools} & PTC Creo, Arduino, MATLAB, MS Office \\
-\textbf{Programmierung} & C, C\#, Java, CNC (Grundkenntnisse) \\
-\textbf{Arbeitsweise} & Analytisch, selbstständig, sorgfältig, hohes technisches Verständnis, lern- und leistungsbereit, teamorientiert \\
-\end{tabularx}
-
-% ===== Languages =====
-\section*{Sprachkenntnisse}
-\begin{tabularx}{\textwidth}{@{}l X@{}}
-\textbf{Französisch} & fließend \\
-\textbf{Englisch} & fließend \\
-\textbf{Deutsch} & fließend \\
-\end{tabularx}
-
-% ===== Other =====
-\section*{Sonstiges}
-Führerschein Klasse B
-
-% ===== Optional: Certifications =====
-% \section*{Zertifikate}
-% (Nur hinzufügen, wenn vorhanden oder in Arbeit mit geplantem Abschlussdatum)
+\input{../libs/sections/header.tex}
+\input{../libs/sections/profile.tex}
+\input{../libs/sections/focus-areas.tex}
+\input{../libs/sections/experience.tex}
+\input{../libs/sections/projects.tex}
+\input{../libs/sections/skills.tex}
+\input{../libs/sections/languages.tex}
+\input{../libs/sections/other.tex}
 
 \end{document}

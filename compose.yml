@@ -11,7 +11,7 @@ services:
       - -lc
       - >
         mkdir -p build &&
-        latexmk -pdf -interaction=nonstopmode -file-line-error \
+        latexmk -xelatex -interaction=nonstopmode -file-line-error \
           -outdir=build -auxdir=build \
           -f \
           entry-points/test-ingenieur.tex

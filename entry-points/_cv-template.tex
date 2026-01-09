@@ -3,14 +3,20 @@
 % - \CVBasename (used to locate matching letter body in libs/letters/)
 % - \CVName
 % - \CVRole
+% Optional:
+% - \CVTitlePrefix (defaults to "Mechatronikingenieur (B.Sc.)")
 
 \documentclass[11pt,a4paper]{article}
 \input{libs/main.tex}
 
 \begin{document}
 
+\ifdefined\CVTitlePrefix\else
+  \def\CVTitlePrefix{Mechatronikingenieur (B.Sc.)}
+\fi
+
 \noindent\cvtitle{\CVName}\\[2pt]
-\noindent\cvsubtitle{\CVRole}
+\noindent\cvsubtitle{\CVTitlePrefix \;|\; \CVRole}
 
 \vspace{12pt}
 

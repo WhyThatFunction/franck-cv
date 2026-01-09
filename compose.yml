@@ -27,9 +27,9 @@ services:
       - sh
       - -lc
       - >
-        mkdir -p build &&
+        mkdir -p build/letters &&
         latexmk -xelatex -interaction=nonstopmode -file-line-error \
-          -outdir=build -auxdir=build \
+          -outdir=build/letters -auxdir=build/letters \
           -f \
           letters/test-ingenieur.tex
 
@@ -48,7 +48,7 @@ services:
         latexmk -xelatex -interaction=nonstopmode -file-line-error \
           -outdir=build -auxdir=build \
           -f \
-          entry-points/${TARGET:-test-ingenieur}.tex
+          entry-points/$${TARGET:-test-ingenieur}.tex
 
   letter:
     image: texlive/texlive:latest-full
@@ -61,11 +61,11 @@ services:
       - sh
       - -lc
       - >
-        mkdir -p build &&
+        mkdir -p build/letters &&
         latexmk -xelatex -interaction=nonstopmode -file-line-error \
-          -outdir=build -auxdir=build \
+          -outdir=build/letters -auxdir=build/letters \
           -f \
-          letters/${TARGET:-test-ingenieur}.tex
+          letters/$${TARGET:-test-ingenieur}.tex
 
   clean:
     image: texlive/texlive:latest-full
@@ -74,5 +74,11 @@ services:
     volumes:
       - .:/work:ro
       - ./build:/work/build
-    command: ["latexmk", "-C", "-outdir=build", "-auxdir=build"]
+    command:
+      - sh
+      - -lc
+      - >
+        mkdir -p build build/letters &&
+        latexmk -C -outdir=build -auxdir=build &&
+        latexmk -C -outdir=build/letters -auxdir=build/letters
     profiles: ["tools"]

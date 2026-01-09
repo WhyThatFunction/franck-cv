@@ -10,4 +10,8 @@
 !libs/*
 !*.png
 !*.tex
+!justfile
 !compose.yml
+!AGENTS.md
+!README.md
+!LICENSE

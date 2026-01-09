@@ -1,0 +1,27 @@
+services:
+  test-ingenieur:
+    image: texlive/texlive:latest-full
+    working_dir: /work
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - .:/work:ro
+      - ./build:/work/build
+    command:
+      - sh
+      - -lc
+      - >
+        mkdir -p build &&
+        latexmk -pdf -interaction=nonstopmode -file-line-error \
+          -outdir=build -auxdir=build \
+          -f \
+          entry-points/test-ingenieur.tex
+
+  clean:
+    image: texlive/texlive:latest-full
+    working_dir: /work
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - .:/work:ro
+      - ./build:/work/build
+    command: ["latexmk", "-C", "-outdir=build", "-auxdir=build"]
+    profiles: ["tools"]

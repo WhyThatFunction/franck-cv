@@ -1,0 +1,11 @@
+*
+!.gitignore
+!entry-points/
+!entry-points/*
+!images/
+!images/*
+!libs/
+!libs/*
+!*.png
+!*.tex
+!compose.yml

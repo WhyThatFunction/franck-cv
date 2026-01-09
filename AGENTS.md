@@ -11,6 +11,8 @@ This repo is a modular LaTeX CV + cover-letter setup, compiled via Docker Compos
 - Build via `justfile` (optional): `just cv <name>` and `just letter <name>`
 - Build all targets via `justfile`: `just all`
 - Build all standalone letters via `justfile`: `just all-letters`
+- Discover commands/targets: `just help`
+- Clean build outputs: `just clean`
 - Outputs:
   - CV: `build/<name>.pdf` (e.g. `build/test-ingenieur.pdf`)
   - Standalone letter: `build/letters/<name>.pdf` (e.g. `build/letters/test-ingenieur.pdf`)

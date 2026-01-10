@@ -20,6 +20,19 @@ Using `just` (shorter commands):
 - Letter: `just letter <name>` (defaults to `test-ingenieur` if omitted)
 - Build all CV targets: `just all`
 - Build all standalone letters: `just all-letters`
+- List commands + available targets: `just help`
+- Clean build outputs: `just clean`
+
+## Justfile usage
+
+The `justfile` is a small command runner wrapper around Docker Compose.
+
+- Discover available targets: `just help`
+- Build a CV: `just cv test-ingenieur`
+- Build a standalone letter: `just letter test-ingenieur`
+- Build everything (CVs): `just all`
+- Build everything (letters): `just all-letters`
+- Clean: `just clean`
 
 Convenience services (fixed target `test-ingenieur`):
 
